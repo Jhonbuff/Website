@@ -36,17 +36,6 @@
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
-        h1 {
-            margin: 0;
-            font-size: 2em;
-        }
-        h2 {
-            color: #333;
-        }
-        p {
-            line-height: 1.6;
-            font-size: 1.1em;
-        }
         footer {
             text-align: center;
             padding: 20px;
@@ -56,24 +45,6 @@
             bottom: 0;
             width: 100%;
         }
-        @media (max-width: 768px) {
-            header img {
-                width: 120px;
-            }
-        }
-        @media (max-width: 480px) {
-            header img {
-                width: 100px;
-            }
-            h1 {
-                font-size: 1.5em;
-            }
-            .container {
-                padding: 10px;
-            }
-        }
-
-        /* Style untuk menu hamburger */
         .menu {
             position: relative;
         }
@@ -113,13 +84,6 @@
         .menu-content a:hover {
             background-color: #f1f1f1;
         }
-        .submenu {
-            display: none;
-            padding-left: 20px;
-        }
-        .menu-content .dropdown:hover .submenu {
-            display: block;
-        }
         .menu.open .menu-content {
             display: block;
         }
@@ -131,6 +95,12 @@
         }
         .menu.open .menu-button div:nth-child(3) {
             transform: rotate(-45deg) translate(5px, -5px);
+        }
+        .settings-content {
+            display: none;
+        }
+        .show-settings .settings-content {
+            display: block;
         }
     </style>
 </head>
@@ -145,26 +115,42 @@
                 <div></div>
             </button>
             <div class="menu-content">
-                <a href="#beranda">Beranda</a>
-                <div class="dropdown">
-                    <a href="#pengaturan">Pengaturan</a>
-                    <div class="submenu">
-                        <a href="#aksesibilitas">Aksesibilitas</a>
-                        <a href="#ganti-bahasa">Ganti Bahasa</a>
-                        <a href="#privasi">Privasi</a>
-                    </div>
-                </div>
-                <a href="#login">Login</a>
-                <a href="#tentang">Tentang</a>
-                <a href="#kontak">Kontak</a>
+                <a href="#" onclick="showContent('beranda')">Beranda</a>
+                <a href="#" onclick="showContent('settings')">Pengaturan</a>
+                <a href="#" onclick="showContent('login')">Login</a>
+                <a href="#" onclick="showContent('tentang')">Tentang</a>
+                <a href="#" onclick="showContent('kontak')">Kontak</a>
             </div>
         </div>
     </header>
-    <div class="container">
+
+    <div class="container" id="beranda">
         <h2>Berita Terbaru</h2>
         <p>Ini adalah halaman utama kami. Kami menyajikan berita terbaru dan informasi penting di sini. Dapatkan update terkini tentang produk dan layanan kami, serta berita terbaru dari industri kami.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vestibulum, justo et viverra tristique, nulla elit laoreet arcu, et suscipit urna lorem a turpis.</p>
     </div>
+
+    <div class="container settings-content" id="settings">
+        <h2>Pengaturan</h2>
+        <p>Di sini Anda dapat mengatur preferensi Anda.</p>
+        <a href="#" onclick="showContent('aksesibilitas')">Aksesibilitas</a><br>
+        <a href="#" onclick="showContent('ganti-bahasa')">Ganti Bahasa</a>
+    </div>
+
+    <div class="container settings-content" id="aksesibilitas">
+        <h2>Aksesibilitas</h2>
+        <p>Di sini Anda dapat mengatur preferensi aksesibilitas Anda.</p>
+    </div>
+
+    <div class="container settings-content" id="ganti-bahasa">
+        <h2>Ganti Bahasa</h2>
+        <p>Pilih bahasa yang Anda inginkan:</p>
+        <select id="language" onchange="changeLanguage()">
+            <option value="en">English</option>
+            <option value="es">Spanish</option>
+            <option value="fr">French</option>
+        </select>
+    </div>
+
     <footer>
         &copy; 2024 Perusahaan Kami. Semua Hak Cipta Dilindungi.
     </footer>
@@ -173,6 +159,22 @@
         function toggleMenu() {
             var menu = document.getElementById('menu');
             menu.classList.toggle('open');
+        }
+
+        function showContent(contentId) {
+            var sections = document.querySelectorAll('.container');
+            sections.forEach(section => {
+                if (section.id === contentId) {
+                    section.style.display = 'block';
+                } else {
+                    section.style.display = 'none';
+                }
+            });
+        }
+
+        function changeLanguage() {
+            var lang = document.getElementById('language').value;
+            alert("Bahasa diubah ke: " + lang);
         }
     </script>
 </body>
