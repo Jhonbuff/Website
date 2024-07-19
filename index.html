@@ -99,7 +99,7 @@
             position: absolute;
             right: 0;
             background-color: #f9f9f9;
-            min-width: 160px;
+            min-width: 200px;
             box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
             z-index: 1;
             margin-top: 10px;
@@ -112,6 +112,13 @@
         }
         .menu-content a:hover {
             background-color: #f1f1f1;
+        }
+        .submenu {
+            display: none;
+            padding-left: 20px;
+        }
+        .menu-content .dropdown:hover .submenu {
+            display: block;
         }
         .menu.open .menu-content {
             display: block;
@@ -138,7 +145,15 @@
                 <div></div>
             </button>
             <div class="menu-content">
-                <a href="#pengaturan">Pengaturan</a>
+                <a href="#beranda">Beranda</a>
+                <div class="dropdown">
+                    <a href="#pengaturan">Pengaturan</a>
+                    <div class="submenu">
+                        <a href="#aksesibilitas">Aksesibilitas</a>
+                        <a href="#ganti-bahasa">Ganti Bahasa</a>
+                        <a href="#privasi">Privasi</a>
+                    </div>
+                </div>
                 <a href="#login">Login</a>
                 <a href="#tentang">Tentang</a>
                 <a href="#kontak">Kontak</a>
@@ -162,3 +177,4 @@
     </script>
 </body>
 </html>
+
