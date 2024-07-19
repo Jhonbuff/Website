@@ -1,88 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Complete Website</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f0f0f0;
-    }
-    nav {
-      background-color: #333;
-      padding: 10px;
-      text-align: center;
-    }
-    nav a {
-      color: white;
-      margin: 0 10px;
-      text-decoration: none;
-      cursor: pointer;
-      padding: 8px 16px;
-      border-radius: 4px;
-    }
-    nav a:hover {
-      background-color: #555;
-    }
-    .section {
-      display: none;
-      padding: 20px;
-    }
-    .active {
-      display: block;
-    }
-    .container {
-      max-width: 800px;
-      margin: auto;
-      background: white;
-      padding: 20px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-    footer {
-      background-color: #333;
-      color: white;
-      text-align: center;
-      padding: 10px;
-      position: fixed;
-      bottom: 0;
-      width: 100%;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Halaman Utama</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            color: #333;
+        }
+        header {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        header img {
+            width: 150px;
+            height: auto;
+            margin-bottom: 10px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            margin: 0;
+            font-size: 2em;
+        }
+        h2 {
+            color: #333;
+        }
+        p {
+            line-height: 1.6;
+            font-size: 1.1em;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #333;
+            color: white;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        @media (max-width: 768px) {
+            header img {
+                width: 120px;
+            }
+        }
+        @media (max-width: 480px) {
+            header img {
+                width: 100px;
+            }
+            h1 {
+                font-size: 1.5em;
+            }
+            .container {
+                padding: 10px;
+            }
+        }
+    </style>
 </head>
 <body>
-  <nav>
-    <a onclick="showSection('home')">Home</a>
-    <a onclick="showSection('about')">About</a>
-    <a onclick="showSection('contact')">Contact</a>
-  </nav>
-  <div class="container">
-    <div id="home" class="section active">
-      <h1>Welcome to My Website!</h1>
-      <p>This is the home page. Here you can find general information about our site.</p>
-      <img src="images/new-image.jpg" alt="Deskripsi gambar baru" width="300" height="200">
+    <header>
+        <img src="image/logo.jpeg" alt="Logo Perusahaan">
+        <h1>Selamat Datang di Website Kami</h1>
+    </header>
+    <div class="container">
+        <h2>Berita Terbaru</h2>
+        <p>Ini adalah halaman utama kami. Kami menyajikan berita terbaru dan informasi penting di sini. Dapatkan update terkini tentang produk dan layanan kami, serta berita terbaru dari industri kami.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vestibulum, justo et viverra tristique, nulla elit laoreet arcu, et suscipit urna lorem a turpis.</p>
     </div>
-    <div id="about" class="section">
-      <h1>About Us</h1>
-      <p>This is the about page. Learn more about our mission and values.</p>
-    </div>
-    <div id="contact" class="section">
-      <h1>Contact Us</h1>
-      <p>This is the contact page. Get in touch with us through the information provided below.</p>
-    </div>
-  </div>
-  <footer>
-    <p>&copy; 2024 My Website. All rights reserved.</p>
-  </footer>
-  <script>
-    function showSection(sectionId) {
-      const sections = document.querySelectorAll('.section');
-      sections.forEach(section => section.classList.remove('active'));
-      document.getElementById(sectionId).classList.add('active');
-    }
-  </script>
+    <footer>
+        &copy; 2024 Perusahaan Kami. Semua Hak Cipta Dilindungi.
+    </footer>
 </body>
 </html>
 
