@@ -16,13 +16,17 @@
             background: #333;
             color: white;
             text-align: center;
-            padding: 20px 0;
+            padding: 10px 0;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 20px;
         }
         header img {
             width: 150px;
             height: auto;
-            margin-bottom: 10px;
         }
         .container {
             max-width: 1200px;
@@ -68,12 +72,78 @@
                 padding: 10px;
             }
         }
+
+        /* Style untuk menu hamburger */
+        .menu {
+            position: relative;
+        }
+        .menu-button {
+            background-color: #333;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 24px;
+            width: 30px;
+        }
+        .menu-button div {
+            width: 100%;
+            height: 3px;
+            background-color: white;
+            transition: all 0.3s ease;
+        }
+        .menu-content {
+            display: none;
+            position: absolute;
+            right: 0;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            margin-top: 10px;
+        }
+        .menu-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+        .menu-content a:hover {
+            background-color: #f1f1f1;
+        }
+        .menu.open .menu-content {
+            display: block;
+        }
+        .menu.open .menu-button div:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        .menu.open .menu-button div:nth-child(2) {
+            opacity: 0;
+        }
+        .menu.open .menu-button div:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
     </style>
 </head>
 <body>
     <header>
         <img src="image/logo.jpeg" alt="Logo Perusahaan">
         <h1>Selamat Datang di Website Kami</h1>
+        <div class="menu" id="menu">
+            <button class="menu-button" onclick="toggleMenu()">
+                <div></div>
+                <div></div>
+                <div></div>
+            </button>
+            <div class="menu-content">
+                <a href="#pengaturan">Pengaturan</a>
+                <a href="#login">Login</a>
+                <a href="#tentang">Tentang</a>
+                <a href="#kontak">Kontak</a>
+            </div>
+        </div>
     </header>
     <div class="container">
         <h2>Berita Terbaru</h2>
@@ -83,6 +153,12 @@
     <footer>
         &copy; 2024 Perusahaan Kami. Semua Hak Cipta Dilindungi.
     </footer>
+
+    <script>
+        function toggleMenu() {
+            var menu = document.getElementById('menu');
+            menu.classList.toggle('open');
+        }
+    </script>
 </body>
 </html>
-
