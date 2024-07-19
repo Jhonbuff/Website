@@ -1,1 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Complete Website</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f0f0;
+    }
+    nav {
+      background-color: #333;
+      padding: 10px;
+      text-align: center;
+    }
+    nav a {
+      color: white;
+      margin: 0 10px;
+      text-decoration: none;
+      cursor: pointer;
+      padding: 8px 16px;
+      border-radius: 4px;
+    }
+    nav a:hover {
+      background-color: #555;
+    }
+    .section {
+      display: none;
+      padding: 20px;
+    }
+    .active {
+      display: block;
+    }
+    .container {
+      max-width: 800px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 10px;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a onclick="showSection('home')">Home</a>
+    <a onclick="showSection('about')">About</a>
+    <a onclick="showSection('contact')">Contact</a>
+  </nav>
+  <div class="container">
+    <div id="home" class="section active">
+      <h1>Welcome to My Website!</h1>
+      <p>This is the home page. Here you can find general information about our site.</p>
+    </div>
+    <div id="about" class="section">
+      <h1>About Us</h1>
+      <p>This is the about page. Learn more about our mission and values.</p>
+    </div>
+    <div id="contact" class="section">
+      <h1>Contact Us</h1>
+      <p>This is the contact page. Get in touch with us through the information provided below.</p>
+    </div>
+  </div>
+  <footer>
+    <p>&copy; 2024 My Website. All rights reserved.</p>
+  </footer>
+  <script>
+    function showSection(sectionId) {
+      const sections = document.querySelectorAll('.section');
+      sections.forEach(section => section.classList.remove('active'));
+      document.getElementById(sectionId).classList.add('active');
+    }
+  </script>
+</body>
+</html>
 
