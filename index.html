@@ -1,57 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Website</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            color: #333;
-        }
-        header {
-            background-color: #4CAF50;
-            width: 100%;
-            padding: 1rem;
-            text-align: center;
-            color: white;
-        }
-        main {
-            text-align: center;
-            padding: 2rem;
-            background: white;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-        }
-        footer {
-            margin-top: auto;
-            padding: 1rem;
-            background-color: #4CAF50;
-            width: 100%;
-            text-align: center;
-            color: white;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Website</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f0f0;
+    }
+    nav {
+      background-color: #333;
+      padding: 10px;
+    }
+    nav a {
+      color: white;
+      margin: 0 10px;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    .section {
+      display: none;
+      padding: 20px;
+    }
+    .active {
+      display: block;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>Welcome to My Website</h1>
-    </header>
-    <main>
-        <h2>Hello, World!</h2>
-        <p>This is a simple website created with HTML and CSS.</p>
-    </main>
-    <footer>
-        <p>&copy; 2024 My Website</p>
-    </footer>
+  <nav>
+    <a onclick="showSection('home')">Home</a>
+    <a onclick="showSection('about')">About</a>
+    <a onclick="showSection('contact')">Contact</a>
+  </nav>
+  <div id="home" class="section active">
+    <h1>Welcome to My Website!</h1>
+    <p>This is the home page.</p>
+  </div>
+  <div id="about" class="section">
+    <h1>About Us</h1>
+    <p>This is the about page.</p>
+  </div>
+  <div id="contact" class="section">
+    <h1>Contact Us</h1>
+    <p>This is the contact page.</p>
+  </div>
+  <script>
+    function showSection(sectionId) {
+      const sections = document.querySelectorAll('.section');
+      sections.forEach(section => section.classList.remove('active'));
+      document.getElementById(sectionId).classList.add('active');
+    }
+  </script>
 </body>
 </html>
-
