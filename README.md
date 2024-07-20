@@ -1,2 +1,2 @@
 # Website
-Ini adalah website 
+Ini adalah website pribadi,sebagah contoh saja.
